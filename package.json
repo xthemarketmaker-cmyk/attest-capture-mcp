@@ -1,0 +1,29 @@
+{
+  "name": "attest-capture-mcp",
+  "version": "0.1.0",
+  "description": "MCP stdio server for the Attest evidence-grade web capture API.",
+  "type": "module",
+  "bin": {
+    "attest-capture-mcp": "index.mjs"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "client.mjs",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "4.4.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}
