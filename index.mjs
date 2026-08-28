@@ -15,7 +15,12 @@ export function createServer({
 } = {}) {
   const server = new McpServer(
     { name: "attest-capture-mcp", version: "0.1.0" },
-    { instructions: "Use capture_url when a workflow needs screenshot, PDF or HTML evidence from a public web page. Treat the evidence page as proof of what the Attest renderer saw, not a forensic chain of custody." },
+    {
+      // resources/prompts are declared so directory crawlers that probe the full
+      // introspection set get an empty list instead of -32601 Method not found.
+      capabilities: { tools: {}, resources: {}, prompts: {} },
+      instructions: "Use capture_url when a workflow needs screenshot, PDF or HTML evidence from a public web page. Treat the evidence page as proof of what the Attest renderer saw, not a forensic chain of custody.",
+    },
   );
 
   server.registerTool(
